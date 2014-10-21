@@ -7,6 +7,7 @@ use 5.010001;
 use strict;
 use warnings;
 
+use Data::Dmp (); # for _double_quote()
 use Scalar::Util qw(looks_like_number blessed reftype);
 
 require Exporter;
@@ -69,7 +70,6 @@ sub _dump {
 our $_is_dd;
 sub _dd_or_dmp {
     local %_seen_refaddrs;
-    local @_fixups;
 
     my $res;
     if (@_ > 1) {
